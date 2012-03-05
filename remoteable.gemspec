@@ -8,8 +8,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Andrew Eberbach"]
   s.email       = ["andrew@ebertech.ca"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = %q{Remoteable AJAX content helper}
 
   s.rubyforge_project = "remoteable"
 
