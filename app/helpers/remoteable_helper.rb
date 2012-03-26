@@ -16,7 +16,7 @@ module RemoteableHelper
   def link_to_remoteable(link, options = {})
     normalize_remoteable_params!(options)
 
-    link_to_function link, "return false;", options
+    link_to_function link, "", options
   end
 
   def refresh_remoteable(options)
