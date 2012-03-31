@@ -44,11 +44,12 @@ module RemoteableHelper
     end
 
     options['data-loaded'] = !!options[:loaded]
-    Rails.logger.info("Data loaded: #{options['data-loaded']}")
     options[:class] = options[:loaded_class] if options[:loaded] && options[:loaded_class]
-
+    
     options[:style] = "display: none;" if options[:hide_until_loaded] && !options['data-loaded']
-
+    options['data-remote-delegate'] = options[:delegate] if options[:delegate]
+    
+    options.delete(:delegate)
     options.delete(:method)
     options.delete(:url)
     options.delete(:format)
