@@ -24,6 +24,12 @@ module RemoteableHelper
 
     %Q{$.remoteables("#{j options["data-src"]}").remoteable("refresh")}
   end
+  
+  def remove_remoteable(options)
+    normalize_remoteable_params!(options)
+
+    %Q{$.remoteables("#{j options["data-src"]}").remoteable("destroy")}    
+  end
 
   private
 
