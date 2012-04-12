@@ -24,11 +24,11 @@ module RemoteableHelper
 
     %Q{$.remoteables("#{j options["data-src"]}").remoteable("refresh")}
   end
-  
+
   def remove_remoteable(options)
     normalize_remoteable_params!(options)
 
-    %Q{$.remoteables("#{j options["data-src"]}").remoteable("destroy")}    
+    %Q{$.remoteables("#{j options["data-src"]}").remoteable("destroy")}
   end
 
   private
@@ -42,8 +42,8 @@ module RemoteableHelper
 
   def normalize_remoteable_params!(options)
     data_method = options[:method] || "get"
-    
-    if(options[:url])
+
+    if (options[:url])
       url = polymorphic_link_from_options(options[:url], options)
       options['data-src'] = url
       options['data-method'] = data_method
@@ -51,17 +51,17 @@ module RemoteableHelper
 
     options['data-loaded'] = !!options[:loaded]
     options[:class] = options[:loaded_class] if options[:loaded] && options[:loaded_class]
-    
+
     options[:style] = "display: none;" if options[:hide_until_loaded] && !options['data-loaded']
     options['data-remote-delegate'] = options[:delegate] if options[:delegate]
-    
+
     options.delete(:delegate)
     options.delete(:method)
     options.delete(:url)
     options.delete(:format)
     options.delete(:loaded)
     options.delete(:hide_until_loaded)
-    options.delete(:loaded_class)    
+    options.delete(:loaded_class)
   end
 
 
