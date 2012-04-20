@@ -5,15 +5,8 @@ module Remoteable
         base.class_eval do
           def redirect_to_with_xhr(*args)
             if request.xhr?
-              @redirect_to = url_for(*args)
-              respond_to do |format|
-                format.json do
-                  render :text => %Q{{
-                  	"redirect_to": "#{ @redirect_to }"
-                  }}, :format => :js
-                end
-              end
-
+              response.headers["X-Remoteable-Redirect"] = url_for(*args)
+              render :text => "", :status => 200
             else
               redirect_to_without_xhr(*args)
             end
