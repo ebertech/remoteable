@@ -3,7 +3,7 @@ module RemoteableHelper
     normalize_remoteable_params!(options)
 
     content_tag(tag, options) do
-      yield if options['data-loaded']
+      yield
     end
   end
 
